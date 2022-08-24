@@ -25,16 +25,17 @@ int main(void)
   
 }
   cout<<"The number of students is "<<n<<endl;
- cout << "Name "  << "\t";
-  cout << "Roll No"<<"\t";
+ cout << "Name "  << "\t\t";
+  cout << "Roll No"<<"\t\t";
   cout << "Mark" << endl;
+  cout<<"______________________________________"<<endl;
 
   for (int  i = 0; i < n; i++)
   {
- cout << s[i].name <<"\t";
- cout << s[i].roll <<"\t" ;
+ cout << s[i].name <<"\t\t";
+ cout << s[i].roll <<"\t\t" ;
  cout << s[i].mark << endl;
-
+ 
  		if (s[i].mark > max)
 			max = s[i].mark;
  }
