@@ -1,0 +1,13 @@
+    // ob.display();
+    // -ob;
+    // cout<<"\nAfter Subtracting 2 from it => ";
+    // ob.display();
+    // *ob;
+    // cout<<"\nAfter Multiplying by itself => ";
+    // ob.display();
+    // cout<<"\nAfter Incrementing by 1 => ";
+    // ++ob;
+    // ob.display();
+    // cout<<"\nAfter Decrementing by 1 => ";
+    // --ob;
+    // ob.display();

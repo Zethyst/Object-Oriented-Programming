@@ -78,17 +78,17 @@ public:
         cout<<"\nEnter the elements in the 1st array: ";
         for (int i = 0; i < m; i++)
             cin>>arr1[i];
-            print(m);
+            print(arr1,m);
         cout<<"\nEnter the elements in the 2nd array: ";
         for (int i = 0; i < n; i++)
             cin>>arr2[i];
-            print(n);
+            print(arr2,n);
     }
-    void print(int m){
+    void print(int arr[100],int m){
     cout<<"\nPolinomial Form: ";
     for (int i = m - 1; i >= 0; i--)
     {
-        cout<<" +"<<arr1[i]<<"x^"<<i;
+        cout<<" +"<<arr[i]<<"x^"<<i;
     }
     }
     void multi(){

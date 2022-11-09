@@ -9,7 +9,7 @@ class abc{
         j=q;
         k=r;
     }
-    void compute(abc a11,abc a22){
+    void compute(abc a11,abc a22){ 
         i=a11.i+a22.i;
         j=a11.j+a22.j;
         k=a11.k+a22.k;

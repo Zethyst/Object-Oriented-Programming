@@ -3,12 +3,31 @@ using namespace std;
 
 class Shopping
 {
-    private:
-    char name[100],code[100];
-    int price[10], quantity[10],Total[10],Sum=0;
+    public:
+    string name[10],code[10];
+    int price[10], quantity[10],Total[10],Sum=0,i;
     public: 
     int get(){
-    for (int i = 0; i < 10; i++)
+        i=1;
+        char ch;
+        cout<<"\nEnter the specifications of the product you wanna buy-\n";
+        cout<<"Name: ";
+        cin>>name[i];
+        fflush(stdin);
+        cout<<"Code: ";
+        cin>>code[i];
+        fflush(stdin);
+        cout<<"Price: ";
+        cin>>price[i];
+        fflush(stdin);
+        cout<<"Quantity: ";
+        cin>>quantity[i];
+        fflush(stdin);
+        Total[i]=price[i]*quantity[i];
+        i++;
+        cout<<"\nDo you want to add another product?\n(Y/N): ";
+        cin>>ch;
+    while (ch=='Y' || ch=='y')
     {
         cout<<"\nEnter the specifications of the product you wanna buy-\n";
         cout<<"Name: ";
@@ -24,12 +43,16 @@ class Shopping
         cin>>quantity[i];
         fflush(stdin);
         Total[i]=price[i]*quantity[i];
+        i++;
+        cout<<"\nDo you want to add another product?\n(Y/N): ";
+        cin>>ch;
     }
-        for (int j = 0; j < 10; j++)
+        for (int j = 1; j < i; j++)
         {
             Sum += Total[j];
         }
-        return Sum;
+    return Sum;
+    
     }
     void display(int x){
     cout << "\nSl.No."
@@ -45,7 +68,7 @@ class Shopping
          << "Total\n";
          cout<<"___________________________________________________________________\n\n";
 
-    for (int j = 1; j < 10; j++)
+    for (int j = 1; j < i; j++)
     {
         cout<<j<<"\t";
         cout << code[j] << "\t";

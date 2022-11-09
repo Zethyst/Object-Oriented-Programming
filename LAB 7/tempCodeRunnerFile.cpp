@@ -1,0 +1,2 @@
+    // ptr = &a;
+    // ptr->display();

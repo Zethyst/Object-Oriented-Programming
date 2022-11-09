@@ -20,7 +20,7 @@ class Employee
     cin>>salary;
     }
     inline void Employee :: out(){
-        cout<<"\nTHE DETAILS:"<<endl<<"Employee Name: "<<name<<"\nDepartment: "<<dept<<"\nEmployee No.: "<<emp_no<<"\nSalary: "<<salary<<endl;
+        cout<<"\nTHE DETAILS:"<<endl<<"Employee Name: "<<name<<"\nDepartment: "<<dept<<"\nEmployee No.: "<<emp_no<<"\nSalary: Rs."<<salary<<"/-"<<endl;
     }
 int main()
 {

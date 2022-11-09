@@ -22,8 +22,9 @@ int main (void){
  abc a1,a2,a3;
  a1.get();
  a2.get();
- a1.add(a2);
+ a3=a1.add(a2);
  a1.display();
  a2.display();
+ a3.display();
 return 0;
 }

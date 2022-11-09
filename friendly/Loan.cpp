@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
+class Interest; // Forward Declaration
 class Basic{
 private:
 int amount;

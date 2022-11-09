@@ -19,7 +19,7 @@ class abc{
 
     }
     void display(){
-        cout<<i<<"\t"<<j<<"\t"<<k<<"\t"<<endl;
+        cout<<i<<"\t"<<j<<"\t"<<k<<"\t\n"<<endl;
     }
 };
 int main (void){
@@ -27,6 +27,7 @@ int main (void){
  a1.get(7,8,9);
  a1.display();
  a2.compute(a1);
+ a1.display();
  a2.display();
 return 0;
 }
