@@ -13,13 +13,7 @@ public:
 		this->num=num;
 		this->price=price;
 	}
-	void get()
-	{
-	cout<<"\nEnter the Number of Item: ";
-	cin>>num;
-	cout<<"\nEnter the Price of Item: ";
-	cin>>price;
-	}
+
 	void display()
 	{
 		cout<<"\n\n----THE DETAILS-----";

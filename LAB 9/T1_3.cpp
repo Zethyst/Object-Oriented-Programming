@@ -1,7 +1,18 @@
+///PROGRAMMED BY AKSHAT JAISWAL
+
 #include <iostream>
 #define n 5
 using namespace std;
 
+template <class T>
+void get_data(T arr[])
+{
+    cout << "\nEnter 5 elements in the array: ";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+}
 template <class T>
 void search(T x[], T key)
 {
@@ -22,8 +33,8 @@ void search(T x[], T key)
 int main(void)
 {
     int arr[n], ch, key1;
-    double arr2[n],key2;
-    char arr3[n],key3;
+    double arr2[n], key2;
+    char arr3[n], key3;
     cout << "What type of elements you want in your array?" << endl;
     cout << "1. Integer" << endl;
     cout << "2. Double" << endl;
@@ -32,33 +43,21 @@ int main(void)
     cin >> ch;
     if (ch == 1)
     {
-        cout << "\nEnter 5 elements in the array: ";
-        for (int i = 0; i < n; i++)
-        {
-            cin >> arr[i];
-        }
+        get_data(arr);
         cout << "\nEnter the value you want to search: ";
         cin >> key1;
         search(arr, key1);
     }
     if (ch == 2)
     {
-        cout << "\nEnter 5 elements in the array: ";
-        for (int i = 0; i < n; i++)
-        {
-            cin >> arr2[i];
-        }
+        get_data(arr2);
         cout << "\nEnter the value you want to search: ";
         cin >> key2;
         search(arr2, key2);
     }
     if (ch == 3)
     {
-        cout << "\nEnter 5 elements in the array: ";
-        for (int i = 0; i < n; i++)
-        {
-            cin >> arr3[i];
-        }
+        get_data(arr3);
         cout << "\nEnter the value you want to search: ";
         cin >> key3;
         search(arr3, key3);
@@ -66,3 +65,4 @@ int main(void)
 
     return 0;
 }
+//END OF LINE

@@ -1,10 +1,13 @@
+// PROGRAMMED BY AKSHAT JAISWAL
+
 #include <iostream>
 using namespace std;
 template <class T>
 class STACK
 {
 private:
-    T arr[5], TOP = -1;
+    T arr[5];
+    int TOP = -1;
 
 public:
     STACK()
@@ -14,7 +17,7 @@ public:
             arr[i] = 0;
         }
     }
-    void PUSH(int val)
+    void PUSH(T val)
     {
         if (TOP < 4)
             arr[++TOP] = val;
@@ -38,19 +41,109 @@ public:
             cout << arr[i] << "  ";
         }
     }
+    int menu()
+    {
+        int ch;
+        cout << "\n---------MENU---------" << endl;
+        cout << "1. Push an element into the stack" << endl;
+        cout << "2. Pop an element from the stack" << endl;
+        cout << "3. Display the contents of the stack" << endl;
+        cout << "4. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> ch;
+        return ch;
+    }
 };
 int main(void)
 {
-    STACK<int> ob;
-    ob.PUSH(1);
-    ob.PUSH(4);
-    ob.PUSH(3);
-    ob.PUSH(7);
-    ob.PUSH(9);
-    ob.PUSH(8);
-    ob.display();
-    ob.POP();
-    cout << "\nAfter Popping one element: ";
-    ob.display();
+    int ch, val1;
+    char val2;
+    float val3;
+    cout << "What type of elements you want in your array?" << endl;
+    cout << "1. Integer" << endl;
+    cout << "2. Float" << endl;
+    cout << "3. Character" << endl;
+    cout << "Enter your choice: ";
+    cin >> ch;
+    if (ch == 1)
+    {
+        STACK<int> ob1;
+        while (1)
+        {
+            ch = ob1.menu();
+            if (ch == 1)
+            {
+                cout << "\nEnter an integer value: " << endl;
+                cin >> val1;
+                ob1.PUSH(val1);
+            }
+            if (ch == 2)
+            {
+                ob1.POP();
+            }
+            if (ch == 3)
+            {
+                ob1.display();
+            }
+            if (ch == 4)
+            {
+                exit(0);
+            }
+        }
+    }
+    if (ch == 2)
+    {
+        STACK<float> ob2;
+        while (1)
+        {
+            ch = ob2.menu();
+            if (ch == 1)
+            {
+                cout << "\nEnter a floating point value: " << endl;
+                cin >> val3;
+                ob2.PUSH(val3);
+            }
+            if (ch == 2)
+            {
+                ob2.POP();
+            }
+            if (ch == 3)
+            {
+                ob2.display();
+            }
+            if (ch == 4)
+            {
+                exit(0);
+            }
+        }
+    }
+    if (ch == 3)
+    {
+        STACK<char> ob3;
+        while (1)
+        {
+            ch = ob3.menu();
+            if (ch == 1)
+            {
+                cout << "\nEnter a character: " << endl;
+                cin >> val2;
+                ob3.PUSH(val2);
+            }
+            if (ch == 2)
+            {
+                ob3.POP();
+            }
+            if (ch == 3)
+            {
+                ob3.display();
+            }
+            if (ch == 4)
+            {
+                exit(0);
+            }
+        }
+    }
+
     return 0;
 }
+// END OF LINE

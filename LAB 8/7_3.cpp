@@ -24,7 +24,7 @@ public:
         y++;
         z++;
     }
-    void operator--()
+    void operator--(int)
     {
         x--;
         y--;
@@ -45,7 +45,7 @@ int main(void)
     ++ob;
     ob.display();
     cout<<"\nAfter Decrementing by 1 => ";
-    --ob;
+    ob--;
     ob.display();
 
     return 0;
