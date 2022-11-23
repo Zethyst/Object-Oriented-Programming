@@ -1,0 +1,418 @@
+#include <iostream>
+#include <fstream>
+#include <string.h>
+using namespace std;
+
+
+class name{
+	public:
+		name(){
+		
+		}
+};
+
+int main(){
+
+    return 0;
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+TYPES OF CONSTRUCTORS:
+
+Dynamic:
+char* p;
+People(){
+    p = new char[10];
+    p = "hello";
+	}
+main: People p1();
+
+Copy:
+People(People& p1){
+    x = p1.x;
+	y = p1.y;
+    }
+main: People p2 = p1;
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+DESTRUCTOR:
+~Test(){
+	cout<<"\n Destructor executed";
+    }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+CONSTRUCTOR INHERITANCE:
+class S: public A1,virtual A2
+{
+    public:
+        S(): A1(), A2()
+        {
+            int r = 40, s = 8, t;
+            t = r * s;
+            cout << "Product is:" << t << endl;
+        }
+};
+A1 and A2 are base classes S is derived class
+First A1() and A2() constructors are executed before s() consrtuctor during obj created as they are inherited
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+OPERATOR OVERLOADING:
+binary operator:
+Int operator +(Int temp1){
+	Int temp;
+	temp.a = a + temp1.a;
+	temp.b = b + temp1.b;
+	return temp;
+	}
+int main(){
+	i3 = i1 + i2;
+	return 0;
+}
+
+unary operator:
+void operator --(){
+count = count - 1;
+        }
+int main(){
+	++p1;
+	return 0;
+}
+
+extraction operator:
+class Operator{
+    public:
+        int a = 3, b = 4;
+        friend ostream & operator << (ostream &out, Operator &c);
+        friend istream & operator >> (ostream &in, Operator &c);
+       
+};
+
+ostream & operator << (ostream &out, Operator &c){
+    out << "Output: " << endl;   
+    out << c.a << endl;
+    out << c.b << endl;
+    return out;
+    }
+
+istream & operator >> (istream &in, Operator &c){
+    cout << "Input: " << endl;   
+    cout << "Enter a value: ";
+    in >> c.a;
+    cout << "Enter b value: ";
+    in >> c.b;
+    return in;
+    }
+
+int main(){
+    Operator op1;
+    cin >> op1;
+    cout << op1;
+    return 0;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+INHERITANCE:
+Single inheritance - 1 base to 1 derived
+Multilevel inheritance - 2 base to 1 derived
+Multiple inheritance - base 1 to sub base 2 to derived
+Hierarchical inheritance - 1 base to 2 sub base to 4 derived 
+
+Hybrid (virtual) inheritance - Hierarchical + Multiple
+#include <iostream>
+using namespace std;
+// base class
+class Vehicle {
+public:
+    Vehicle() { cout << "This is a Vehicle\n"; }
+}; 
+// base class
+class Fare {
+public:
+    Fare() { cout << "Fare of Vehicle\n"; }
+}; 
+// first sub class
+class Car : public Vehicle {
+}; 
+// second sub class
+class Bus : public Vehicle, public Fare {
+};
+// main function
+int main()
+{
+    // Creating object of sub class will
+    // invoke the constructor of base class.
+    Bus obj2;
+    return 0;
+}
+
+Multipath inheritance - special case of hybrid - 1 base class to 2 sub-base classes to 1 derived
+#include <iostream>
+using namespace std;
+class ClassA {
+public:
+    int a;
+};
+class ClassB : virtual public ClassA {
+public:
+    int b;
+};
+class ClassC : virtual public ClassA {
+public:
+    int c;
+};
+class ClassD : public ClassB, public ClassC {
+public:
+    int d;
+};
+int main()
+{
+    ClassD obj;
+ 
+    obj.a = 10;                  //class d cannot acess class a without virtual due to confusion, can be avoided by using virtual
+    obj.a = 100;                 
+ 
+    //obj.ClassB::a = 10; // Statement 3			
+    //obj.ClassC::a = 100; // Statement 4			//to be used if virtual is not allowed or used
+ 
+    obj.b = 20;
+    obj.c = 30;
+    obj.d = 40;
+ 
+    cout << " a from ClassB  : " << obj.ClassB::a;
+    cout << "\n a from ClassC  : " << obj.ClassC::a;
+ 
+    cout << "\n b : " << obj.b;
+    cout << "\n c : " << obj.c;
+    cout << "\n d : " << obj.d << '\n';
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+VIRTUAL FUNCTIONS:
+pointer for base class - use to acess base class functions
+obj for derived class - use to acess derived class functions
+
+#include<iostream>
+using namespace std;
+  
+class base {
+public:
+    void fun_1() { cout << "base-1\n"; }
+    virtual void fun_2() { cout << "base-2\n"; }
+    virtual void fun_3() { cout << "base-3\n"; }
+    virtual void fun_4() { cout << "base-4\n"; }
+};
+  
+class derived : public base {
+public:
+    void fun_1() { cout << "derived-1\n"; }
+    void fun_2() { cout << "derived-2\n"; }
+    void fun_4(int x) { cout << "derived-4\n"; }
+};
+  
+int main(){
+    base *p;
+    derived obj1;
+    p = &obj1;
+    p->fun_1();
+    p->fun_2();
+    p->fun_3();
+    p->fun_4();  
+    return 0;
+}
+Use *p to access base class functions. if not found it will try to access derived class functions
+Use obj1 to access derived class funcitons. if not found it will try to access base calss functions
+
+
+used in multipath inheritance
+
+abstract class - class with atleast one pure virtual function, pointers used to access it, the pure virtual function is not overriden in derived class
+#include<iostream>
+using namespace std;
+class Base{
+public:			//constructors and variables allowed
+    virtual void show() = 0;
+};
+  
+class Derived : public Base { };
+  
+int main(void)
+{
+  Derived d;
+  return 0;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+TEMPLATES:
+
+Function templates:
+template <typename T> 	//there can be multiple parameters here 
+T myMax(T x, T y){
+    return (x > y) ? x : y;
+}
+  
+int main(){
+    cout << myMax<int>(3, 7) << endl; // Call myMax for int
+    cout << myMax<double>(3.0, 7.0) << endl; // call myMax for double
+    cout << myMax<char>('g', 'e') << endl; // call myMax for char
+    return 0;
+}
+
+Class templates:
+template <class T> 
+class vector{ 
+	T *v; 
+	int size; 
+		public: 
+		vector(int m){ 
+			v= new T [size =m]; 
+			for(int i=0; i<size; i++) 
+			v[i]= 0; 
+			} 
+		vector(T *a){ 
+			for(int i=0; i<size; i++) 
+			v[i]= a[i]; 
+			} 
+		T operator *(vector &y){ 
+			T sum =0; 
+			for(int i=0; i<size; i++) 
+				sum+= this-> v[i] * y.v[i]; 
+			return sum; 
+		}
+};
+int main(){ 
+	Test <float, int> test1 (1.23, 123); 
+	Test <int, char> test2 (100, ‘w’);
+	test1.show(); 
+	test2.show(); 
+	return 0; 
+}
+
+Non type template:
+template <class T, int size> 
+class array 
+{
+ T a[size]; 
+// …
+//…
+};
+array <int, 10> a1;
+array <float, 5> a2;
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+STRING LIBRARY FUNCTIONS:
+#include <string>
+join - strcat(x, a); - x = x + a
+copy - strcpy(s, x); - s = a
+equal - strcmp(s, op.s); - returns 0 if equal
+length - s.length()
+
+constructor for strings:
+String(){
+        strcpy(s, "");
+    }
+String(char s[]){
+   strcpy(this->s, s);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+FILE HANDLING:
+read
+ifstream fin;
+fin.open("student.txt");
+fin.close();
+
+write
+ofstream fout;
+fout.open("student.txt", ios::app);
+fout.close();
+
+flies modes:
+app - append - output happen at end of file
+in - input - read only
+out - output - write only
+binary - binary - Operations are performed in binary not text
+ate - at end - output position starts at end of file
+
+funtions:
+eof() - returns true if file ends
+fail() - return true if input or output operation failed
+bad() - returns true if error
+good() - returns true if no error
+
+loop through file:
+while(!fin.eof()){
+	// for line by line
+	getline(fin,s);
+	// for character by character
+	fin.get(ch);
+	//word by word
+	fin >> word;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+KEYWORDS:
+this - pointer to point to the class variable in case of confusion
+super - reference variable used to point to the parent class in case of confusion
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+EXCEPTION HANDLING:
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+   int x = -1;
+ 
+   // Some code
+   cout << "Before try \n";
+   try {
+      cout << "Inside try \n";
+      if (x < 0)
+      {
+         throw x;
+         cout << "After throw (Never executed) \n";
+      }
+   }
+   catch (int x ) {
+      cout << "Exception Caught \n";
+   }
+ 
+   cout << "After catch (Will be executed) \n";
+   return 0;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
