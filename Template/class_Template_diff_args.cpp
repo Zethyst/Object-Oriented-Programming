@@ -30,7 +30,7 @@ int main(void)
     x2.display();
     x3.get(9,'C');
     x3.display();
-    x4.get('A','H');
+    x4.get('A',72);
     x4.display();
     return 0;
 }

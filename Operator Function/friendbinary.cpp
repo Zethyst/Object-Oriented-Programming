@@ -26,12 +26,20 @@ public:
         cout << "\nj: " << j;
     }
     friend ABC operator-(ABC, ABC);
+    friend ABC operator *(ABC,ABC);
 };
 ABC operator-(ABC ob1, ABC ob2)
 {
     ABC ob3;
     ob3.i = ob1.i - ob2.i;
     ob3.j = ob1.j - ob2.j;
+    return (ob3);
+}
+ABC operator*(ABC ob1, ABC ob2)
+{
+    ABC ob3;
+    ob3.i = ob1.i * ob2.i;
+    ob3.j = ob1.j * ob2.j;
     return (ob3);
 }
 int main(void)
@@ -59,6 +67,15 @@ int main(void)
     d2.display();
     cout << "\nObject 3 => ";
     d3.display();
+
+    d3=d1*d2;
+    cout << "\nAfter Multiplying Object 1 with Object 2 ---->\nObject 1 => ";
+    d1.display();
+    cout << "\nObject 2 => ";
+    d2.display();
+    cout << "\nObject 3 => ";
+    d3.display();
+
 
     return 0;
 }

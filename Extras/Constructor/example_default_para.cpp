@@ -19,10 +19,10 @@ class XYZ{
 };
 int main (void){
     XYZ a1,a2;
-    XYZ a2(5,6,7);
+    XYZ a3(5,6,7);
     a1.display();
     a2.display();
-    // a3.display();
+    a3.display();
 
  
 return 0;
