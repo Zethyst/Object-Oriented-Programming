@@ -37,7 +37,7 @@ public:
 
 int main(void)
 {
-    A ob(5,6);
+    A ob1(5,6);
     B ob(7,8,9);
     ob.display();
     ob.display();

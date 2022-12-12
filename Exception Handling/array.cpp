@@ -28,9 +28,8 @@ void display(int x[])
 {
     for (int i = 0; i < 5; i++)
     {
-        cout<<x[i]<<"  ";
+        cout << x[i] << "  ";
     }
-    
 }
 
 int main(void)
@@ -42,8 +41,11 @@ int main(void)
     }
     catch (int index)
     {
-        cout << "\nCaught an Exception.\nEnter value again: ";
-        cin >> arr[index];
+        cout << "\nCaught an Exception.\nEnter value(s) again: ";
+        for (int i = index; i < 5; i++)
+        {
+            cin >> arr[i];
+        }
     }
     display(arr);
     return 0;

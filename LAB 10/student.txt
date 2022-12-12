@@ -1,0 +1,6 @@
+Name: Akshat Jaiswal
+Roll No: 21052646
+Gender: M
+Physics Marks: 85
+Chemistry Marks: 78
+Mathematics Marks: 77

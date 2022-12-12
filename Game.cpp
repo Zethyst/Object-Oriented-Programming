@@ -127,6 +127,7 @@ int main(void)
     Shape *ptr;
     Box b;
     Tent t;
+    
     int ch, x = 0, y = 0;
     string color;
 Menu:
